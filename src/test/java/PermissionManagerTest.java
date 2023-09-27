@@ -1,36 +1,17 @@
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.example.PermissionManager;
+// PermissionManagerTest.java
 import org.example.PermissionLevel;
+import org.example.PermissionManager;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PermissionManagerTest {
-
     @Test
-    public void testGetRoleNameAdmin() {
+    public void testGetRoleName() {
         PermissionManager manager = new PermissionManager();
-        String roleName = manager.getRoleName(PermissionLevel.ADMIN);
-        assertEquals("Admin", roleName);
-    }
-
-    @Test
-    public void testGetRoleNameDeveloper() {
-        PermissionManager manager = new PermissionManager();
-        String roleName = manager.getRoleName(PermissionLevel.DEVELOPER);
-        assertEquals("Developer", roleName);
-    }
-
-    @Test
-    public void testGetRoleNameUser() {
-        PermissionManager manager = new PermissionManager();
-        String roleName = manager.getRoleName(PermissionLevel.USER);
-        assertEquals("User", roleName);
-    }
-
-    @Test
-    public void testGetRoleNameUnknown() {
-        PermissionManager manager = new PermissionManager();
-        String roleName = manager.getRoleName(null); // Test with an unknown level
-        assertEquals("Unknown", roleName);
+        assertEquals("Admin", manager.getRoleName(PermissionLevel.ADMIN));
+        assertEquals("Developer", manager.getRoleName(PermissionLevel.DEVELOPER));
+        assertEquals("User", manager.getRoleName(PermissionLevel.USER));
+        assertEquals("Unknown", manager.getRoleName(null));
     }
 
     @Test
